@@ -9,7 +9,6 @@ for (let i = 1; i < 21; i++) {
     console.log(i);
   }
 }
-
 let i = 0;
 
 const showNum = document.getElementById("showNum");

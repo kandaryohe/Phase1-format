@@ -74,10 +74,15 @@ console.log(nengou);
 nengou[2] = "showa";
 console.log(nengou);
 
+//! 8月2日学習記録
+
 //条件分岐
 const num = Math.random();
 
 if (num >= 0.5) {
+  //原則if文は条件式がtrueの場合実行される
+  //文字列数値などは実行される
+  //0、""、falseなどの条件式でfalseとみなされる値は実行されない
   console.log("大きめ");
   //numが0.5以上である場合
 } else {
@@ -85,3 +90,68 @@ if (num >= 0.5) {
 }
 
 console.log(`数: ${num}`);
+
+//条件式
+const a = 4;
+const b = 5;
+const c = 7;
+const d = 7;
+
+console.log(a === b);
+console.log(a === b && c === d); //左辺がtrueかつ右辺がtrueの場合trueになる
+console.log(a === b || c === d); //左辺がtrueまたは右辺がtrueの場合trueになる
+console.log(!(a === b)); //真偽値が逆転する　trueならfalse falseならtrue
+
+//条件式
+for (let i = 0; i < 10; i++) {
+  //iという変数に0を代入
+  //条件が合致する限り処理される、i<10は満たしているか、満たしている場合は終了
+  //条件が合致する場合繰り返し更新される、iに1加算代入する
+  //コンソールに0から9までの値を表示する
+  console.log(i);
+}
+//for(初期化処理; 継続処理； 更新処理；）　セミコロンで区切る
+
+//while文
+
+let i = 0;
+while (i < 10) {
+  console.log(i);
+  i++;
+}
+
+//関数（処理をまとめて名前を付けるもの）
+
+//定義
+function cook(food1, food2) {
+  //←（foodは引数）
+  console.log(food1);
+  console.log(food2);
+} //関数を作成しメモリに用意しただけ
+
+//function 関数（引数）
+//実行(呼び出し)
+//関数を実行する際は、関数に()をつける
+cook("生姜焼き", "カレー");
+
+//関数を一度作成すれば、何度でも呼びだすことが可能
+//引数を用いて実行時に任意の値を呼び出せる
+//関数の戻り値
+function applyTax(price) {
+  console.log(price * 1.1); //TODO: 消費税（１０％）込みの金額を出力する
+  return price * 1.1;
+}
+
+const result1 = applyTax(1000);
+const result2 = applyTax(580);
+
+//上の結果を合計したい
+console.log(applyTax(1000) + applyTax(580));
+console.log(result1 + result2);
+//return　戻り値→合計
+//戻り値を指定して、っ関数内の任意の値を別の場所（コンテクスト）で使用することができる
+
+//8月3日
+function bar() {
+  console.log;
+}
