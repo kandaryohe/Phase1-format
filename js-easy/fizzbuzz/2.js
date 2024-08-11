@@ -12,13 +12,13 @@ for (let i = 1; i < 21; i++) {
 
 let i = 0;
 
-const shoNum = document.getElementById("showNum");
-shoNum.innerHTML = i;
+const showNum = document.getElementById("showNum");
+showNum.innerHTML = i;
 
 const fizzBtn = function () {
   i += 1;
   if (i % 3 === 0) {
-    shoNum.innerHTML = "fizz";
+    showNum.innerHTML = "fizz"; //1＋された時0の部分がfizzに代わるだけ（textcotentでも可）
   } else {
     alert("ぶっぶーですわ");
     location.reload();
@@ -28,7 +28,7 @@ const fizzBtn = function () {
 const buzzBtn = function () {
   i += 1;
   if (i % 5 === 0) {
-    shoNum.innerHTML = "buzz";
+    showNum.innerHTML = "buzz";
   } else {
     alert("ぶっぶーですわ");
     location.reload();
@@ -38,7 +38,7 @@ const buzzBtn = function () {
 const fizzbuzzBtn = function () {
   i += 1;
   if (i % 3 === 0 && i + 5 === 0) {
-    shoNum.innerHTML = "fizzbuzz";
+    showNum.innerHTML = "fizzbuzz";
   } else {
     alert("ぶっぶーですわ");
     location.reload();
@@ -51,5 +51,5 @@ const numBtn = function () {
     alert("ぶっぶーですわ");
     location.reload();
   }
-  shoNum.innerHTML = i;
+  showNum.innerHTML = i;
 };
