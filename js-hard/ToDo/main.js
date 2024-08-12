@@ -1,1 +1,2 @@
-const input = document.getElementById("add-area");
+const input = document.getElementById('add-area')
+
