@@ -1,9 +1,4 @@
-//5×6のマスを作る
-//一番上の段はBINGO、、真ん中はfree
-
-const bingoView = document.querySelector(".view");
-
-//１段目
+// //１段目
 const line1 = document.createElement("tr");
 view.appendChild(line1);
 
@@ -27,126 +22,6 @@ const item5 = document.createElement("td");
 item5.textContent = "O";
 line1.appendChild(item5);
 
-//２段目
-const line2 = document.createElement("tr");
-view.appendChild(line2);
-
-const item6 = document.createElement("td");
-item6.textContent = "";
-line2.appendChild(item6);
-
-const item7 = document.createElement("td");
-item7.textContent = "";
-line2.appendChild(item7);
-
-const item8 = document.createElement("td");
-item8.textContent = "";
-line2.appendChild(item8);
-
-const item9 = document.createElement("td");
-item9.textContent = "";
-line2.appendChild(item9);
-
-const item10 = document.createElement("td");
-item10.textContent = "";
-line2.appendChild(item10);
-
-//３段目
-const line3 = document.createElement("tr");
-view.appendChild(line3);
-
-const item11 = document.createElement("td");
-item11.textContent = "";
-line3.appendChild(item11);
-
-const item12 = document.createElement("td");
-item12.textContent = "";
-line3.appendChild(item12);
-
-const item13 = document.createElement("td");
-item13.textContent = "";
-line3.appendChild(item13);
-
-const item14 = document.createElement("td");
-item14.textContent = "";
-line3.appendChild(item14);
-
-const item15 = document.createElement("td");
-item15.textContent = "";
-line3.appendChild(item15);
-
-//４段目
-const line4 = document.createElement("tr");
-view.appendChild(line4);
-
-const item16 = document.createElement("td");
-item16.textContent = "";
-line4.appendChild(item16);
-
-const item17 = document.createElement("td");
-item17.textContent = "";
-line4.appendChild(item17);
-
-const item18 = document.createElement("td");
-item18.textContent = "free";
-line4.appendChild(item18);
-
-const item19 = document.createElement("td");
-item19.textContent = "";
-line4.appendChild(item19);
-
-const item20 = document.createElement("td");
-item20.textContent = "";
-line4.appendChild(item20);
-
-//５段目
-const line5 = document.createElement("tr");
-view.appendChild(line5);
-
-const item21 = document.createElement("td");
-item21.textContent = "";
-line5.appendChild(item21);
-
-const item22 = document.createElement("td");
-item22.textContent = "";
-line5.appendChild(item22);
-
-const item23 = document.createElement("td");
-item23.textContent = "";
-line5.appendChild(item23);
-
-const item24 = document.createElement("td");
-item24.textContent = "";
-line5.appendChild(item24);
-
-const item25 = document.createElement("td");
-item25.textContent = "";
-line5.appendChild(item25);
-
-//６段目
-const line6 = document.createElement("tr");
-view.appendChild(line6);
-
-const item26 = document.createElement("td");
-item26.textContent = "";
-line6.appendChild(item26);
-
-const item27 = document.createElement("td");
-item27.textContent = "";
-line6.appendChild(item27);
-
-const item28 = document.createElement("td");
-item28.textContent = "";
-line6.appendChild(item28);
-
-const item29 = document.createElement("td");
-item29.textContent = "";
-line6.appendChild(item29);
-
-const item30 = document.createElement("td");
-item30.textContent = "";
-line6.appendChild(item30);
-
 //Bの列には1～15
 //Iも列には16～30
 //Nの列には31～45
@@ -154,11 +29,51 @@ line6.appendChild(item30);
 //Oの列には61～75
 //それぞれ更新したら毎回ランダムに表示
 
-//１行目
-//let bingoNum = Math.floor(Math.random() * 15) + 1;
-//item6.innerHTML = bingoNum;
-let bingoNum = [item6, item11, item16, item21, item21];
-function getRandom() {
-  let randomNumber = Math.floor(Math.random() * 15) + 1;
-  bingoNum.textContent = randomNumber;
+let numArr = []; //５つの数字を生成していれる処理を５回繰り返した
+for (let i = 1; i <= 5; i++) {
+  let randomNumArr = []; //５つの数字を生成していれる
+  while (randomNumArr.length < 5) {
+    let bingoNum =
+      Math.floor(Math.random() * (15 * i - 15 * (i - 1))) + 15 * (i - 1) + 1;
+
+    //重複を避ける処理を追加
+    //randomNumArrにbingoNumがすでに含まれているかを確認
+    if (randomNumArr.includes(bingoNum) === false) {
+      randomNumArr.push(bingoNum);
+    }
+    console.log(randomNumArr);
+    numArr.push(randomNumArr);
+  }
 }
+
+//幹　table、枝　tr、葉　td
+//親に子供を付ける
+//親.appendChild(子)
+// const line6 = document.createElement("tr");
+// view.appendChild(line6);
+
+const bingoView = document.querySelector(".view");
+
+//マス目を５個作成する処理を５回まで繰り返す
+let masuss = [];
+for (let i = 0; i < 5; i++) {
+  let masus = [];
+  while (masus.length < 5) {
+    let masu = document.createElement("td");
+    masus.push(masu);
+    masuss.push(masus);
+  }
+}
+console.log(masuss);
+
+//行を５つ作成する処理を５回繰り返す
+let gyouss = [];
+for (let i = 0; i < 5; i++) {
+  let gyous = [];
+  while (gyous.length < 5) {
+    let gyou = document.createElement("tr");
+    gyous.push(gyou);
+    gyouss.push(gyous);
+  }
+}
+console.log(gyouss);

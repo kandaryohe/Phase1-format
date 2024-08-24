@@ -20,6 +20,7 @@ addBtn.addEventListener("click", function () {
   //完了ボタンを、作成、取得する
   const compBtn = document.createElement("button");
   compBtn.textContent = "完了";
+  newTag.appendChild(compBtn);
 
   //完了ボタンと共にタスク下に表示
   //HTML上のどこに表示するか
@@ -27,6 +28,6 @@ addBtn.addEventListener("click", function () {
   const lists = document.getElementById("todo");
   lists.appendChild(newTag);
   compBtn.addEventListener("click", function () {
-    lists.removeChild(newTag);
+    lists.removeChild(lists.lastElementChild);
   });
 });
