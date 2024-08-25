@@ -41,10 +41,11 @@ for (let i = 1; i <= 5; i++) {
     if (randomNumArr.includes(bingoNum) === false) {
       randomNumArr.push(bingoNum);
     }
-    console.log(randomNumArr);
-    numArr.push(randomNumArr);
+    //console.log(randomNumArr);
   }
+  numArr.push(randomNumArr);
 }
+console.log(numArr);
 
 //幹　table、枝　tr、葉　td
 //親に子供を付ける
@@ -53,27 +54,26 @@ for (let i = 1; i <= 5; i++) {
 // view.appendChild(line6);
 
 const bingoView = document.querySelector(".view");
-
-//マス目を５個作成する処理を５回まで繰り返す
-let masuss = [];
 for (let i = 0; i < 5; i++) {
-  let masus = [];
-  while (masus.length < 5) {
-    let masu = document.createElement("td");
-    masus.push(masu);
-    masuss.push(masus);
+  let line = document.createElement("tr");
+  for (let j = 0; j < 5; j++) {
+    let trout = document.createElement("td");
+    trout.innerHTML = numArr[j][i];
+    line.appendChild(trout);
+    view.appendChild(line);
   }
 }
-console.log(masuss);
+console.log(view);
 
-//行を５つ作成する処理を５回繰り返す
-let gyouss = [];
-for (let i = 0; i < 5; i++) {
-  let gyous = [];
-  while (gyous.length < 5) {
-    let gyou = document.createElement("tr");
-    gyous.push(gyou);
-    gyouss.push(gyous);
-  }
-}
-console.log(gyouss);
+// let troutAll = [];
+// for (let i = 0; i < 5; i++) {
+//   let trouts = [];
+//   while (trouts.length < 5) {
+//     let trout = document.createElement("td");
+//     trouts.push(trout);
+//     trout.innerHTML = "";
+//   }
+//   troutAll.push(trouts);
+// }
+
+// console.log(troutAll);
